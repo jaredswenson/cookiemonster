@@ -20,7 +20,7 @@ body{
 	background-size: cover;
 	float: left;
 	margin-right: 150px;
-	margin-left: 75px;
+	margin-left: 185px;
 	margin-top: 3px;
 }
 
@@ -121,7 +121,7 @@ body{
 	position: relative;
 	z-index: -1;
 	float: left;
-	margin-left: 560px;
+	margin-left: 660px;
 }
 
 #foot1 img{
