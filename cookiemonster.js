@@ -3,7 +3,7 @@ $(document).ready(function () {
 	var audioreset = $('#soundclip2')[0];
 	var audiopipe = $('#soundclip3')[0];
 	// fire mario 
-	$('#fire').on('click', function () {
+	$('#fire').on('click', function () { // animating the fire image
 		$('#fire').animate({
 			height: 'hide'
 		}, 1000, function () {
@@ -17,18 +17,19 @@ $(document).ready(function () {
 		})
 		.animate({
 			height: 'show'
-		},1000);
-		$('#foot1').animate({
+		},1000); // end of animating fire image
+		$('#foot1').animate({ // sending mario down tube
 			top: '175px'
-		}, 2000)
+		}, 2000, function () {
+			$('#mario').attr('src', 'firemario.jpg'); // changing mario going down tube
+		})
 		.animate({
 			top: '0px'
-		}, 500);
-		$('#mario').attr('src', 'firemario.jpg');
-		audioup.play();
+		}, 500);// end of sending mario down tube and sending back up
+		audioup.play(); // play sound
 	});
 	// change h1 to value
-	function setValue() {
+	function setValue() { // set h1 value on click
 		if (Cookies.get('ccc')) {
 			$('#fireh1').text(Cookies.get('ccc'));
 		}; 
@@ -41,7 +42,7 @@ $(document).ready(function () {
 	});
 	// flyer mario
 	$('#fly').on('click', function () {
-	$('#fly').fadeOut(1000, function() {
+	$('#fly').fadeOut(1000, function() { // animating the fly image
 		var current = Cookies.get('scc');
 	if (current && !isNaN(current)) {
 		Cookies.set('scc', parseInt(current)+1);
@@ -50,18 +51,20 @@ $(document).ready(function () {
 		Cookies.set("scc", 1);
 	};
 	})
-	.fadeIn(1000);
+	.fadeIn(1000); // end animating fly image
 	$('#foot1').animate({
 		top: '175px'
-	}, 2000)
+	}, 2000, function () { // send mario down tube
+		$('#mario').attr('src', 'flyer.jpg') // change mario image
+	})
 	.animate({
 		top: '0px'
-	}, 500);
-	$('#mario').attr('src', 'flyer.jpg')
-	audioup.play();
+	}, 500); //send mario back up
+	
+	audioup.play(); // play audio
 	});
 	// change h1 value.
-	function setflyValue() {
+	function setflyValue() { // set h1 value on click
 		if (Cookies.get('scc')) {
 			$('#flyh1').text(Cookies.get('scc'));
 		}; 
@@ -74,7 +77,7 @@ $(document).ready(function () {
 	});
 	// yoshi cookies
 	$('#yoshi').on('click', function () {
-	$('#yoshi').animate({
+	$('#yoshi').animate({ // animate yoshi image
 	width: ["hide", "swing" ],
     height: [ "hide", "swing" ],
     },1000, function () {
@@ -89,20 +92,21 @@ $(document).ready(function () {
     .animate({
     width: ["show", "swing" ],
     height: [ "show", "swing" ],
-  },1000);
+  },1000); // end yoshi animation
 
-	$('#foot1').animate({
+	$('#foot1').animate({ // send mario down tube
 		top: '175px'
-	}, 2000)
+	}, 2000, function () {
+		$('#mario').attr('src', 'marioyoshi.jpg'); // change mario after going down tube.
+	})
 	.animate({
 		top: '0px'
-	}, 500);
-	$('#mario').attr('src', 'marioyoshi.jpg')
-	audioup.play();
+	}, 500); // send him back up tube
+	audioup.play(); // play audio on click
 	});
 
 	// change h1 to  value.
-	function setyoshiValue() {
+	function setyoshiValue() { // set h1 yoshi value
 		if (Cookies.get('lcc')) {
 			$('#yoshih1').text(Cookies.get('lcc'));
 		}; 
